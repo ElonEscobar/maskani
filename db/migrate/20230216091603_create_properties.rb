@@ -1,0 +1,16 @@
+class CreateProperties < ActiveRecord::Migration[7.0]
+  def change
+    create_table :properties do |t|
+      t.string :name
+      t.string :location
+      t.string :description
+      t.string :amenities
+      t.boolean :onsale
+      t.integer :price
+      t.integer :user_id
+      t.boolean :is_verified
+
+      t.timestamps
+    end
+  end
+end
