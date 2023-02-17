@@ -1,4 +1,6 @@
 class Property < ApplicationRecord
+    belongs_to :user
+
     after_initialize :init
 
     def init
