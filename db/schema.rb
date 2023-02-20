@@ -1,4 +1,5 @@
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_02_16_091929) do
   create_table "auctions", force: :cascade do |t|
     t.string "name"
