@@ -7,6 +7,39 @@ Item.destroy_all
 
 Property.destroy_all
 
+
+User.create!(first_name: "kirui",
+  last_name: "kirui",
+    email: "kiffifi@gmail.com",
+  contact: 98765432,
+location: "kilifi",
+category:  "kind",
+password: "121212",
+password_confirmation: "121212",)
+
+User.create!(first_name: "kibiko",
+last_name: "kibikoh",
+ email: "kibiko@gmail.com",
+contact: 272727290,
+location: "kisumu",
+category:  "election",
+password: "202020",
+password_confirmation: "202020",)
+
+User.create!(first_name: "kinara",
+last_name: "kinarar",
+email: "kinara@gmail.com",
+contact: 723890789,
+location: "nakuru",
+category:  "plumbing",
+password: "123456",
+password_confirmation: "123456",)
+
+
+p "Created #{User.count} users"
+
+
+
     Classified.create!(first_name: "kinutia",
                    last_name: "kinuthiad",
                      email: "kinuthia@gmail.com",
@@ -14,7 +47,7 @@ Property.destroy_all
                  location: "kiambu",
                  occupation:  "technician",
                 description: "mchapa kazi",
-                 user_id: "1",)
+                 user_id: 1,)
 
   Classified.create!(first_name: "piploma",
                     last_name: "kipling",
@@ -23,7 +56,7 @@ Property.destroy_all
                   location: "thika",
                   occupation:  "electricisan",
                  description: "mchapa kazi",
-                  user_id: "2",) 
+                  user_id: 2,) 
 
  Classified.create!(first_name: "shayanan",
                     last_name: "shayani",
@@ -32,7 +65,7 @@ Property.destroy_all
                   location: "mlomlongo",
                   occupation:  "broker",
                  description: "mcsahara",
-                  user_id: "2",)
+                  user_id: 2,)
 
   
   p "Created #{Classified.count} classifieds"
@@ -43,21 +76,21 @@ Property.destroy_all
                      price: 20000,
                      is_valid: true,
                   end_date: "12/07/24",
-                 user_id:  "1")
+                 user_id:  1)
 
 Auction.create!(name: "pp2",
                     description: "for rent",
                      price: 50000,
                      is_valid: true,
                   end_date: "12/09/22",
-                 user_id:  "3")
+                 user_id:  3)
 
 Auction.create!(name: "pp3",
                     description: "for lease",
                      price: 25000,
                      is_valid: false,
                   end_date: "12/45/56",
-                 user_id:  "2")
+                 user_id:  2)
   
   p "Created #{Auction.count} auctions"
 
@@ -65,19 +98,19 @@ Auction.create!(name: "pp3",
                       description: "kijiko for sale",
                        price: 30000,
                      category: "vijikos",
-                   user_id:  "1",)
+                   user_id:  1,)
 
  Item.create!(name: "sufuria",
                     description: "sufuria for rent",
                      price: 70000,
                    category: "sufurias",
-                 user_id:  "3")
+                 user_id:  3)
 
  Item.create!(name: "kikombe",
                     description: "for rent",
                      price: 20000,
                    category: "vikoos",
-                 user_id:  "2")
+                 user_id:  2)
     
     p "Created #{Item.count} items"
 
@@ -87,7 +120,7 @@ Auction.create!(name: "pp3",
                        location: "adams",
                       amenities: "water",
                       onsale: true,
-                     user_id:  "1",)
+                     user_id:  1,)
 
   Property.create!(name: "pp4",
                         description: "froe rent",
@@ -95,7 +128,7 @@ Auction.create!(name: "pp3",
                        location: "kileleswa",
                       amenities: "stima",
                       onsale: true,
-                     user_id:  "2",)
+                     user_id:  2,)
 
 Property.create!(name: "pp3",
                         description: "for example",
@@ -103,41 +136,10 @@ Property.create!(name: "pp3",
                        location: "lamu",
                       amenities: "celling",
                       onsale: false,
-                     user_id:  "3",)
+                     user_id:  3,)
       
       
       p "Created #{Property.count} properties"
 
-
-
- User.create!(first_name: "kirui",
-                   last_name: "kirui",
-                     email: "kiffifi@gmail.com",
-                   contact: 98765432,
-                 location: "kilifi",
-                 category:  "kind",
-              password: "121212",
-            password_confirmation: "121212",)
-
- User.create!(first_name: "kibiko",
-                last_name: "kibikoh",
-                  email: "kibiko@gmail.com",
-                contact: 272727290,
-              location: "kisumu",
-              category:  "election",
-           password: "202020",
-        password_confirmation: "202020",)
-
-User.create!(first_name: "kinara",
-            last_name: "kinarar",
-              email: "kinara@gmail.com",
-            contact: 723890789,
-          location: "nakuru",
-          category:  "plumbing",
-       password: "123456",
-    password_confirmation: "123456",)
-  
-  
-  p "Created #{User.count} users"
 
 
