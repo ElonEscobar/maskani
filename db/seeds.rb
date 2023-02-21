@@ -1,76 +1,143 @@
-Classifieds.destroy_all
+Classified.destroy_all
+User.destroy_all
 
-100.times do |index|
-    Classifieds.create!(first_name: "first_name #{index}",
-                   last_name: "last_name #{index}",
-                     email: "email #{index}",
-                   contact: "contact #{index}",
-                 location: "location #{index}",
-                 occupation:  "occupation #{index}",
-                description: "description #{index}",
-                 user_id: "user_id #{index}",
-                  is_verified: "is_verified #{index}",)
-  end
+Auction.destroy_all
+
+Item.destroy_all
+
+Property.destroy_all
+
+    Classified.create!(first_name: "kinutia",
+                   last_name: "kinuthiad",
+                     email: "kinuthia@gmail.com",
+                   contact: 720458902 ,
+                 location: "kiambu",
+                 occupation:  "technician",
+                description: "mchapa kazi",
+                 user_id: "1",)
+
+  Classified.create!(first_name: "piploma",
+                    last_name: "kipling",
+                      email: "kiplagat@gmail.com",
+                    contact: 72020202 ,
+                  location: "thika",
+                  occupation:  "electricisan",
+                 description: "mchapa kazi",
+                  user_id: "2",) 
+
+ Classified.create!(first_name: "shayanan",
+                    last_name: "shayani",
+                      email: "shayanaia.com",
+                    contact:  733445660 ,
+                  location: "mlomlongo",
+                  occupation:  "broker",
+                 description: "mcsahara",
+                  user_id: "2",)
+
   
   p "Created #{Classified.count} classifieds"
 
 
-  Auctions.destroy_all
+ Auction.create!(name: "pp1",
+                    description: "p for sale",
+                     price: 20000,
+                     is_valid: true,
+                  end_date: "12/07/24",
+                 user_id:  "1")
 
-100.times do |index|
-    Auctions.create!(name: "name #{index}",
-                    description: "description #{index}",
-                     price: "price #{index}",
-                   valid: "valid #{index}",
-                  end_date: "end_date #{index}",
-                 user_id:  "user_id #{index}",
-                is_verified: "is_verified #{index}",)
-  end
+Auction.create!(name: "pp2",
+                    description: "for rent",
+                     price: 50000,
+                     is_valid: true,
+                  end_date: "12/09/22",
+                 user_id:  "3")
+
+Auction.create!(name: "pp3",
+                    description: "for lease",
+                     price: 25000,
+                     is_valid: false,
+                  end_date: "12/45/56",
+                 user_id:  "2")
   
   p "Created #{Auction.count} auctions"
 
-  Items.destroy_all
+ Item.create!(name: "kijiko",
+                      description: "kijiko for sale",
+                       price: 30000,
+                     category: "vijikos",
+                   user_id:  "1",)
 
-  100.times do |index|
-      Items.create!(name: "name #{index}",
-                      description: "description #{index}",
-                       price: "price #{index}",
-                     category: "category #{index}",
-                   user_id:  "user_id #{index}",
-                  is_verified: "is_verified #{index}",)
-    end
+ Item.create!(name: "sufuria",
+                    description: "sufuria for rent",
+                     price: 70000,
+                   category: "sufurias",
+                 user_id:  "3")
+
+ Item.create!(name: "kikombe",
+                    description: "for rent",
+                     price: 20000,
+                   category: "vikoos",
+                 user_id:  "2")
     
     p "Created #{Item.count} items"
 
-    Properties.destroy_all
+ Property.create!(name: "p3",
+                        description: "p3 for sale",
+                         price: 30000,
+                       location: "adams",
+                      amenities: "water",
+                      onsale: true,
+                     user_id:  "1",)
 
-    100.times do |index|
-        Properties.create!(name: "name #{index}",
-                        description: "description #{index}",
-                         price: "price #{index}",
-                       location: "location #{index}",
-                      amenities: "amenities #{index}",
-                      onsale: "onsale #{index}",
-                     user_id:  "user_id #{index}",
-                    is_verified: "is_verified #{index}",)
-      end
+  Property.create!(name: "pp4",
+                        description: "froe rent",
+                         price: 80000,
+                       location: "kileleswa",
+                      amenities: "stima",
+                      onsale: true,
+                     user_id:  "2",)
+
+Property.create!(name: "pp3",
+                        description: "for example",
+                         price: 90000,
+                       location: "lamu",
+                      amenities: "celling",
+                      onsale: false,
+                     user_id:  "3",)
+      
       
       p "Created #{Property.count} properties"
 
 
 
-      Users.destroy_all
+ User.create!(first_name: "kirui",
+                   last_name: "kirui",
+                     email: "kiffifi@gmail.com",
+                   contact: 98765432,
+                 location: "kilifi",
+                 category:  "kind",
+              password: "121212",
+            password_confirmation: "121212",)
 
-100.times do |index|
-    Users.create!(first_name: "first_name #{index}",
-                   last_name: "last_name #{index}",
-                     email: "email #{index}",
-                   contact: "contact #{index}",
-                 location: "location #{index}",
-                 category:  "category #{index}",
-              password_digest: "password #{index}",)
-  end
+ User.create!(first_name: "kibiko",
+                last_name: "kibikoh",
+                  email: "kibiko@gmail.com",
+                contact: 272727290,
+              location: "kisumu",
+              category:  "election",
+           password: "202020",
+        password_confirmation: "202020",)
+
+User.create!(first_name: "kinara",
+            last_name: "kinarar",
+              email: "kinara@gmail.com",
+            contact: 723890789,
+          location: "nakuru",
+          category:  "plumbing",
+       password: "123456",
+    password_confirmation: "123456",)
+  
   
   p "Created #{User.count} users"
-end
+
 
