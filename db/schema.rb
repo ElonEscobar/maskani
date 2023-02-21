@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_16_091929) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_21_102956) do
   create_table "auctions", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "price"
-    t.boolean "valid"
     t.datetime "end_date"
     t.integer "user_id"
     t.boolean "is_verified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_valid"
   end
 
   create_table "classifieds", force: :cascade do |t|
