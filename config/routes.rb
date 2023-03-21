@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   post '/login', to: 'auth#create'
   post '/auto_login', to: 'auth#auto_login'
   get '/logged_in', to: 'application#logged_in?'
- 
+  
 end
