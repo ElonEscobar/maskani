@@ -16,25 +16,48 @@ class ItemsController < ApplicationController
     end
 
     def create
-        item = Item.create!(item_params)
-        render json: item, status: :created
-    end
+        response = Cloudinary::Uploader.upload(params[:image])
+
+        @user = current_user()
+
+        # byebug;
+        # sometimes the image upload fails hence, check if upload was successful
+        if response['secure_url']
+            item = Item.create!(name: params[:name], description: params[:description], price: params[:price], category: params[:category], image_data: response['secure_url'], user_id: @user.id)
+
+            if item        
+                render json: item, status: :created, location: @item
+            else
+                render json: item.errors, status: :unprocessable_entity
+            end
+        else
+            render json: { error: 'image upload failed!' }, status: :unprocessable_entity
+        end
+        
+        
+    end 
 
     def update
-        item = Item.update!(item_params)
-        render json: item, status: :accepted
+        if @item.update!(item_params)
+            render json: @item, status: :accepted
+        else
+            render json: @item.errors, status: :unprocessable_entity
+        end
     end
 
     def destroy
-        item = Item.find(params[:id])
-        item.destroy!
+        @item.destroy
         head :no_content
     end
 
     private
 
+    def set_item
+        @item = Item.find(params[:id])
+    end
+
     def item_params
-        params.permit(:name, :description, :price, :category)
+        params.permit(:name, :description, :price, :category, :image)
     end
 
     def render_not_found_response

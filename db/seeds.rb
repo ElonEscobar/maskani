@@ -119,7 +119,7 @@ Auction.create!(name: "pp3",
                          price: 30000,
                        location: "adams",
                       amenities: "water",
-                      onsale: true,
+                      home_type: 'For Sale',
                      user_id:  1,)
 
   Property.create!(name: "pp4",
@@ -127,7 +127,7 @@ Auction.create!(name: "pp3",
                          price: 80000,
                        location: "kileleswa",
                       amenities: "stima",
-                      onsale: true,
+                      home_type: 'For Rent',
                      user_id:  2,)
 
 Property.create!(name: "pp3",
@@ -135,7 +135,7 @@ Property.create!(name: "pp3",
                          price: 90000,
                        location: "lamu",
                       amenities: "celling",
-                      onsale: false,
+                      home_type: 'For Sale',
                      user_id:  3,)
       
       

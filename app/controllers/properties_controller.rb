@@ -15,22 +15,43 @@ class PropertiesController < ApplicationController
     end
 
     def create
-        property = Property.create!(property_params)
-        render json: property, status: :created
+        response = Cloudinary::Uploader.upload(params[:image])
+
+        @user = current_user()
+        # byebug;
+        # sometimes the image upload fails hence, check if upload was successful
+
+        if response['secure_url']
+            property = Property.create!(name: params[:name], location: params[:location], description: params[:description], amenities: params[:amenities], home_type: params[:home_type], price: params[:price], user_id: @user.id, image_data: response['secure_url'])
+            if property
+                render json: property, status: :created, location: @property
+            else
+                render json: property.errors, status: :unprocessable_entity
+            end
+        else
+            render json: { error: 'Image upload failed!' }, status: :unprocessable_entity
+        end
     end
 
     def update
-        property = Property.update!(property_params)
-        render json: property, status: :accepted
+        if @property.update!(property_params)
+            render json: @property, status: :accepted
+        else
+            render json: @property.errors, status: :unprocessable_entity
+        end
     end
 
     def destroy
-        property = Property.find(params[:id])
-        property.destroy!
+        @property.destroy!
         head :no_content
     end
 
     private
+
+    def set_property
+        @property = Property.find(params[:id])
+    end
+
 
     def property_params
         params.permit(:name, :location, :description, :amenities, :onsale, :price)

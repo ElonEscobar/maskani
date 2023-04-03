@@ -15,22 +15,40 @@ class AuctionsController < ApplicationController
     end
 
     def create
-        auction = Auction.create!(auction_params)
-        render json: auction, status: :created
+        response = Cloudinary::Uploader.upload(params[:image])
+        @user = current_user()
+
+        # check if image has been uploaded successfully
+        if response['secure_url']
+            auction = Auction.create!(name: params[:name], description: params[:description], price: params[:price], end_date: params[:end_date], user_id: @user.id)
+            if auction
+                render json: auction, status: :created, location: @auction
+            else
+                render json: auction.errors, status: :unprocessable_entity
+            end
+        else
+            render json: { error: 'Image upload failed!'}, status: :unprocessable_entity
+        end
     end
 
     def update
-        auction = Auction.update!(auction_params)
-        render json: auction, status: :accepted
+        if @auction.update!(auction_params)
+            render json: @auction, status: :accepted
+        else
+            render json: @auction.errors, status: :unprocessable_entity
+        end
     end
 
     def destroy
-        auction = Auction.find(params[:id])
-        auction.destroy!
+        @auction.destroy!
         head :no_content
     end
 
     private
+
+    def set_auction
+        @auction = Auction.find(params[:id])
+    end
 
     def auction_params
         params.permit(:name, :price, :description, :end_date)

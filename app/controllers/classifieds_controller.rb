@@ -15,22 +15,41 @@ class ClassifiedsController < ApplicationController
     end
 
     def create
-        classified = Classified.create!(classified_params)
-        render json: classified, status: :created
+        response = Cloudinary::Uploader.upload(params[:image])
+        @user = current_user()
+        # byebug;
+        # sometimes the image upload fails hence, check if upload was successful
+        if response['secure_url']
+            classified = Classified.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], contact: params[:contact], location: params[:location], occupation: params[:occupation], description: params[:description], image_data: response['secure_url'] user_id: @user.id)
+
+            if classified
+                render json: classified, status: :created, location: @classified
+            else
+                render json: classified.errors, status: :unprocessable_entity
+            end
+        else
+            render json: { error: 'Image upload failed!' }, status: :unprocessable_entity
+        end
     end
 
     def update
-        classified = Classified.update!(classified_params)
-        render json: classified, status: :accepted
+        if @classified.update!(classified_params)
+            render json: @classified, status: :accepted
+        else
+            render json: @classified.errors, status: :unprocessable_entity
+        end
     end
 
     def destroy
-        classified = Classified.find(params[:id])
-        classified.destroy!
+        @classified.destroy!
         head :no_content
     end
 
     private
+
+    def set_classified
+        @classified = Classified.find(params[:id])
+    end
 
     def classified_params
         params.permit(:first_name, :last_name, :email, :contact, :location, :occupation, :description)
