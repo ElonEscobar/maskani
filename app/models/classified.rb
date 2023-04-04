@@ -1,5 +1,6 @@
 class Classified < ApplicationRecord
     belongs_to :user
+    has_one_attached :image
 
     after_initialize :init
 

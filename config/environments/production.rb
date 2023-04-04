@@ -1,6 +1,11 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+
+  # Store uploaded files on the local file system (see config/storage.yml for options).
+  config.active_storage.service = :cloudinary
+
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Hosts for deployment 
