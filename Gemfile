@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.7"
+ruby "3.0.3"
 
 # serializer for response objects 
 gem 'active_model_serializers'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4"
+gem "rails", "~> 7.1.1"
 
 gem "jwt"
 
