@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.7"
+ruby "3.1.2"
 
 # serializer for response objects 
 gem 'active_model_serializers'
@@ -47,6 +47,6 @@ group :development do
 end
 
 group :production do 
-  gem 'pg'
+  gem 'pg', '>= 1.5.4'
 end 
 
