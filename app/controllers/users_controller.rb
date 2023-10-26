@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]    
 
@@ -20,7 +21,8 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.update!(user_params)
+        user = User.find(params[:id])
+        user.update!(user_update_params)
         render json: user, status: :accepted
     end
 
@@ -34,6 +36,10 @@ class UsersController < ApplicationController
 
     def user_params
         params.permit(:first_name, :last_name, :email, :contact, :location, :category, :password, :password_confirmation)
+    end
+
+    def user_update_params
+        params.permit(:first_name, :last_name, :email, :location, :contact)
     end
 
     def render_not_found_response
