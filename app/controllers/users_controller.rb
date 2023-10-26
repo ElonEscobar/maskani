@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     end
 
     def user_update_params
-        params.permit(:first_name, :last_name, :email, :location, :contact)
+        params.permit(:id, :first_name, :last_name, :email, :location, :contact, :category)
     end
 
     def render_not_found_response
