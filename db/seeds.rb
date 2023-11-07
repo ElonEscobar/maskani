@@ -47,7 +47,8 @@ p "Created #{User.count} users"
                  location: "kiambu",
                  occupation:  "technician",
                 description: "mchapa kazi",
-                 user_id: 1,)
+                 user_id: 1,
+                 image_data:'https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 
   Classified.create!(first_name: "piploma",
                     last_name: "kipling",
@@ -56,7 +57,8 @@ p "Created #{User.count} users"
                   location: "thika",
                   occupation:  "electricisan",
                  description: "mchapa kazi",
-                  user_id: 2,) 
+                  user_id: 2,
+                  image_data:'https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') 
 
  Classified.create!(first_name: "shayanan",
                     last_name: "shayani",
@@ -65,7 +67,8 @@ p "Created #{User.count} users"
                   location: "mlomlongo",
                   occupation:  "broker",
                  description: "mcsahara",
-                  user_id: 2,)
+                  user_id: 2,
+                  image_data:'https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 
   
   p "Created #{Classified.count} classifieds"
@@ -120,7 +123,8 @@ Auction.create!(name: "pp3",
                        location: "adams",
                       amenities: "water",
                       home_type: 'For Sale',
-                     user_id:  1,)
+                     user_id:  1,
+                     image_data: 'https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&w=300')
 
   Property.create!(name: "pp4",
                         description: "froe rent",
@@ -128,7 +132,8 @@ Auction.create!(name: "pp3",
                        location: "kileleswa",
                       amenities: "stima",
                       home_type: 'For Rent',
-                     user_id:  2,)
+                     user_id:  2,
+                     image_data: 'https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&w=300')
 
 Property.create!(name: "pp3",
                         description: "for example",
@@ -136,7 +141,8 @@ Property.create!(name: "pp3",
                        location: "lamu",
                       amenities: "celling",
                       home_type: 'For Sale',
-                     user_id:  3,)
+                     user_id:  3,
+                     image_data: 'https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&w=300')
       
       
       p "Created #{Property.count} properties"
