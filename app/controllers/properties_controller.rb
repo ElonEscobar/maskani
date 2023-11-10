@@ -54,7 +54,7 @@ class PropertiesController < ApplicationController
 
 
     def property_params
-        params.permit(:name, :location, :description, :amenities, :onsale, :price)
+        params.permit(:name, :location, :description, :amenities, :price, :home_type)
     end
 
     def render_not_found_response
