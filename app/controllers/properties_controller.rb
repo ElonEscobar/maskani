@@ -1,5 +1,7 @@
+require 'byebug'
+
 class PropertiesController < ApplicationController
-    skip_before_action :authorized, only:[:index, :show]
+    # skip_before_action :authorized, only:[:index, :show]
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
@@ -34,28 +36,26 @@ class PropertiesController < ApplicationController
     end
 
     def update
-        if @property.update!(property_params)
-            render json: @property, status: :accepted
+        # upload image to cloudinary      
+        res = Cloudinary::Uploader.upload(params[:image])
+        
+        property = Property.find(params[:id])
+
+        if res['secure_url']
+            property.update!(name: params[:name], location: params[:location], description: params[:description], amenities: params[:amenities], home_type: params[:home_type], price: params[:price], image_data: res['secure_url'])
+            render json: property, status: :accepted
         else
-            render json: @property.errors, status: :unprocessable_entity
+            render json: property.errors, status: :unprocessable_entity
         end
     end
 
     def destroy
-        @property.destroy!
+        property = Property.find(params[:id])
+        property.destroy!
         head :no_content
     end
 
     private
-
-    def set_property
-        @property = Property.find(params[:id])
-    end
-
-
-    def property_params
-        params.permit(:name, :location, :description, :amenities, :price, :home_type)
-    end
 
     def render_not_found_response
         render json: { error: "Property not found" }, status: :not_found
