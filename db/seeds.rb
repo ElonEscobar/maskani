@@ -41,32 +41,20 @@ p "Created #{User.count} users"
 
 
     Classified.create!(first_name: "kinutia",
-                   last_name: "kinuthiad",
-                     email: "kinuthia@gmail.com",
-                   contact: 720458902 ,
                  location: "kiambu",
-                 occupation:  "technician",
-                description: "mchapa kazi",
+                description: "",
                  user_id: 1,
                  image_data:'https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 
-  Classified.create!(first_name: "piploma",
-                    last_name: "kipling",
-                      email: "kiplagat@gmail.com",
-                    contact: 72020202 ,
+  Classified.create!(first_name: "Water and Plumbing services",
                   location: "thika",
-                  occupation:  "electricisan",
-                 description: "mchapa kazi",
+                 description: "mchapa kazi services available at veryaffordable rates",
                   user_id: 2,
                   image_data:'https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') 
 
- Classified.create!(first_name: "shayanan",
-                    last_name: "shayani",
-                      email: "shayanaia.com",
-                    contact:  733445660 ,
-                  location: "mlomlongo",
-                  occupation:  "broker",
-                 description: "mcsahara",
+ Classified.create!(first_name: "shayan water reserves co.",
+                  location: "mlolongo",
+                 description: "top notch water installation and maintainance systems",
                   user_id: 2,
                   image_data:'https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 

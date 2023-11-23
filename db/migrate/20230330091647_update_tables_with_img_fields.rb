@@ -9,5 +9,10 @@ class UpdateTablesWithImgFields < ActiveRecord::Migration[7.0]
     remove_column :properties, :onsale, :boolean
     add_column :properties, :home_type, :string
 
+    remove_column :classifieds, :contact, :string
+    remove_column :classifieds, :occupation, :string
+    remove_column :classifieds, :email, :string
+    remove_column :classifieds, :last_name, :string
+
   end
 end

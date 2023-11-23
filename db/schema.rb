@@ -54,11 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_03_30_091647) do
 
   create_table "classifieds", force: :cascade do |t|
     t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "contact"
     t.string "location"
-    t.string "occupation"
     t.string "description"
     t.integer "user_id"
     t.boolean "is_verified"
